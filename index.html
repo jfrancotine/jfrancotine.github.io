@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jose Franco — Software Developer</title>
+<meta name="description" content="Bilingual software developer with a B.S. in Software Development and over a decade of operations and team leadership experience.">
+
+<meta property="og:title" content="Jose Franco — Software Developer">
+<meta property="og:description" content="Bilingual software developer based in Flower Mound, TX.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/jf.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:      #1a1612;
+    --ink-soft: #4a423a;
+    --paper:   #f5efe6;
+    --paper-2: #ebe3d6;
+    --paper-3: #ffffff;
+    --accent:  #c2410c;
+    --rule:    #d4c9b8;
+    --serif:   "Fraunces", "Times New Roman", serif;
+    --sans:    "Inter", system-ui, sans-serif;
+    --mono:    "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(194,65,12,0.06), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,22,18,0.04), transparent 50%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); transition: all 0.2s; }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* === Sidebar === */
+  aside { position: sticky; top: 4rem; align-self: start; height: fit-content; }
+
+  .portrait {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    filter: grayscale(0.15) contrast(1.02);
+    border: 3px solid var(--paper-3);
+    box-shadow: 0 8px 24px rgba(26,22,18,0.12);
+  }
+
+  .mark {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.75rem;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+  }
+  .mark em { font-style: italic; color: var(--accent); }
+
+  .role {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    max-width: 28ch;
+  }
+
+  nav ul { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+  nav li { margin-bottom: 0.5rem; }
+  nav a {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  nav a::before {
+    content: "";
+    width: 1.5rem; height: 1px;
+    background: var(--rule);
+    transition: all 0.3s;
+  }
+  nav a:hover { color: var(--accent); }
+  nav a:hover::before { width: 2.5rem; background: var(--accent); }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* === Main === */
+  main { min-width: 0; }
+
+  section { margin-bottom: 6rem; scroll-margin-top: 2rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+
+  .hero-text {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 2rem;
+    max-width: 32ch;
+  }
+  .hero-text em { font-style: italic; color: var(--accent); }
+
+  .lede {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0 0 1.5rem;
+  }
+
+  /* Skills grid */
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .skill-group { padding: 1.25rem; background: var(--paper-2); border-radius: 4px; }
+  .skill-group h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+  .skill-group ul { list-style: none; padding: 0; margin: 0; }
+  .skill-group li {
+    font-size: 0.9rem;
+    color: var(--ink);
+    padding: 0.2rem 0;
+  }
+
+  /* Projects */
+  .project {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    transition: padding 0.3s;
+  }
+  .project:hover { padding-left: 1rem; }
+  .project:last-of-type { border-bottom: 1px solid var(--rule); }
+
+  .project .num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .project h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+  }
+  .project p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.75rem;
+    max-width: 60ch;
+  }
+  .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    background: var(--paper-2);
+    border-radius: 2px;
+    color: var(--ink-soft);
+  }
+  .project .arrow {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink-soft);
+    transition: all 0.3s;
+  }
+  .project:hover .arrow { color: var(--accent); transform: translateX(4px); }
+
+  /* Experience */
+  .exp {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .exp:last-of-type { border-bottom: 1px solid var(--rule); }
+  .exp .when {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+  .exp h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0 0 0.25rem;
+  }
+  .exp .where {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.75rem;
+    font-style: italic;
+  }
+  .exp ul {
+    margin: 0; padding: 0;
+    list-style: none;
+  }
+  .exp li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+    padding-left: 1.25rem;
+    position: relative;
+    max-width: 60ch;
+  }
+  .exp li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Education */
+  .edu {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .edu:last-of-type { border-bottom: 1px solid var(--rule); }
+  .edu .when {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .edu h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0 0 0.25rem;
+  }
+  .edu .where {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* Honors / awards strip */
+  .awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .award {
+    background: var(--paper-3);
+    padding: 1.5rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(26,22,18,0.06);
+    transition: transform 0.3s;
+  }
+  .award:hover { transform: translateY(-3px); }
+  .award img {
+    width: 100%;
+    max-width: 130px;
+    height: auto;
+    margin-bottom: 0.75rem;
+  }
+  .award .label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  .award.crest { grid-column: span 2; }
+  .award.crest img { max-width: 110px; }
+  @media (max-width: 600px) {
+    .award.crest { grid-column: span 1; }
+  }
+
+  /* Languages */
+  .langs {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .lang {
+    flex: 1;
+    min-width: 180px;
+    padding: 1rem 1.25rem;
+    background: var(--paper-2);
+    border-radius: 4px;
+  }
+  .lang .label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 0.25rem;
+  }
+  .lang .level {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .contact-card {
+    padding: 1.5rem;
+    background: var(--paper-2);
+    border-radius: 4px;
+    transition: transform 0.2s;
+  }
+  .contact-card:hover { transform: translateY(-2px); }
+  .contact-card .label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+  }
+  .contact-card a {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    border: none;
+    word-break: break-word;
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 2rem 1.25rem;
+    }
+    aside { position: static; text-align: left; }
+    .portrait { width: 140px; height: 140px; }
+    .mark { font-size: 2.25rem; }
+    .project { grid-template-columns: 1fr auto; }
+    .project .num { display: none; }
+    .exp, .edu { grid-template-columns: 1fr; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside>
+    <img src="assets/jf.jpg" alt="Jose Franco" class="portrait">
+    <h1 class="mark">Jose<br><em>Franco</em></h1>
+    <div class="role">Software Developer · Flower Mound, TX</div>
+    <p class="bio">Bilingual developer with a decade of leadership experience across three countries.</p>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#honors">Honors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="socials">
+      <a href="https://github.com/jfrancotine" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://linkedin.com/in/jfrancotine" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:jfrancotine@gmail.com">Email ↗</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="about" class="reveal">
+      <div class="section-label">01 — Introduction</div>
+      <p class="hero-text">
+        Bilingual software developer who builds things <em>thoughtfully</em> — and led teams across three countries before writing his first line of Java.
+      </p>
+      <p class="lede">
+        I hold a B.S. in Software Development from Bellevue University on top of a Bachelor of Business Administration from Central University of Venezuela. Over the last decade I've led teams in retail, run a supermarket in Chile, sold pharmaceuticals in Venezuela, and managed VIP banking clients — picking up English along the way and now applying that operational mindset to clean, well-tested code.
+      </p>
+      <p class="lede">
+        I work in Java, Python, PHP, JavaScript, and SQL. I care about Agile collaboration, version control hygiene, and code that someone else can read six months later. Open to relocation and travel.
+      </p>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="section-label">02 — Technical Skills</div>
+      <h2>What I <em>work with</em>.</h2>
+
+      <div class="skills">
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>PHP</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Web</h4>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Databases</h4>
+          <ul>
+            <li>MySQL</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Tools &amp; Platforms</h4>
+          <ul>
+            <li>Git &amp; GitHub</li>
+            <li>VS Code, IntelliJ</li>
+            <li>Eclipse, PyCharm</li>
+            <li>WordPress</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Beyond Code</h4>
+          <ul>
+            <li>Agile collaboration</li>
+            <li>Team leadership</li>
+            <li>Bilingual EN / ES</li>
+            <li>Process improvement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="reveal">
+      <div class="section-label">03 — Selected Projects</div>
+      <h2>Things I've <em>built</em>.</h2>
+
+      <a class="project" href="https://www.embracingminimalism.com" target="_blank" rel="noopener" style="display:grid;">
+        <span class="num">001</span>
+        <div>
+          <h3>Embracing Minimalism</h3>
+          <p>A bilingual (EN/ES) marketing and booking site for a professional organizing business in Oklahoma. Multi-section landing page with services, before/after gallery, tiered package pricing, a newsletter integration, and a working contact form. Built on WordPress with the Astra theme — live, in production, and serving a real client.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Astra</span>
+            <span class="tag">Bilingual</span>
+            <span class="tag">Live Site</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="project" href="https://github.com/asteen89/Moffat-Bay" target="_blank" rel="noopener" style="display:grid;">
+        <span class="num">002</span>
+        <div>
+          <h3>Moffat Bay Lodge — Capstone</h3>
+          <p>A full-stack lodge reservation web application built with a four-person Agile team for my senior capstone. I wrote 87% of the Java back-end, contributed to CSS styling, and authored the formal test plans for reservation lookup, About Us, and the home page. The team shipped 159+ commits through Git.</p>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Git</span>
+            <span class="tag">Agile</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="project" href="https://github.com/jfrancotine/bioSite" target="_blank" rel="noopener" style="display:grid;">
+        <span class="num">003</span>
+        <div>
+          <h3>Personal Bio Site</h3>
+          <p>A multi-page personal website built from scratch with semantic HTML5 and custom CSS3. Responsive layouts and consistent navigation across Home, About, and Hobbies pages — no frameworks, no shortcuts.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="section-label">04 — Experience</div>
+      <h2>Where I've <em>been</em>.</h2>
+
+      <div class="exp">
+        <div class="when">Oct 2022 — Now<br><span style="opacity:0.7">Flower Mound, TX</span></div>
+        <div>
+          <h3>Food &amp; Beverage Team Leader</h3>
+          <p class="where">Target</p>
+          <ul>
+            <li>Lead a team of associates to maintain corporate compliance in inventory management, food safety, and operational workflows.</li>
+            <li>Drive efficiency improvements through strategic task delegation, scheduling, and workflow optimization.</li>
+            <li>Train and coach team members on operational standards, quality, and safety procedures.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Apr 2022 — Oct 2022<br><span style="opacity:0.7">Flower Mound, TX</span></div>
+        <div>
+          <h3>Sales Associate</h3>
+          <p class="where">Target</p>
+          <ul>
+            <li>Managed high-volume inventory and customer service in fast-paced retail; promoted to Team Leader within six months.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Jan 2020 — Dec 2020<br><span style="opacity:0.7">United States</span></div>
+        <div>
+          <h3>Sales Representative</h3>
+          <p class="where">Royal Prestige</p>
+          <ul>
+            <li>Independently managed full sales cycle: prospecting, lead generation, presentations, and bilingual (EN/ES) client relationships.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Dec 2018 — Dec 2019<br><span style="opacity:0.7">Chile</span></div>
+        <div>
+          <h3>Supermarket Manager</h3>
+          <p class="where">Supermercado Mi Barrio</p>
+          <ul>
+            <li>Directed full store operations including sales strategy, HR, and team productivity.</li>
+            <li>Supervised, trained, and scheduled staff; managed payroll and day-to-day store performance.</li>
+            <li>Monitored inventory and merchandising to support sales targets.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Apr 2018 — Dec 2018<br><span style="opacity:0.7">Chile</span></div>
+        <div>
+          <h3>Administrative Assistant</h3>
+          <p class="where">Construtora Harcha</p>
+          <ul>
+            <li>Processed payroll, supplier payments, and accounts payable across active construction projects.</li>
+            <li>Maintained budget tracking and audit-ready financial records.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Sep 2017 — Apr 2018<br><span style="opacity:0.7">Chile</span></div>
+        <div>
+          <h3>Sales Representative</h3>
+          <p class="where">Comercial Isaflor</p>
+          <ul>
+            <li>Provided expert product guidance for home improvement retail; managed stock levels and merchandising.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Apr 2013 — May 2017<br><span style="opacity:0.7">Venezuela</span></div>
+        <div>
+          <h3>Pharmaceutical Sales Representative</h3>
+          <p class="where">Especialidades Dollder</p>
+          <ul>
+            <li>Delivered technical product knowledge to medical professionals specializing in psychiatric pharmaceuticals.</li>
+            <li>Built and maintained relationships with healthcare providers to drive territory growth.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Apr 2012 — Mar 2013<br><span style="opacity:0.7">Venezuela</span></div>
+        <div>
+          <h3>VIP Banking Agent</h3>
+          <p class="where">BBVA</p>
+          <ul>
+            <li>Managed high-profile client accounts with full institutional credit-policy compliance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="when">Feb 2011 — Nov 2011<br><span style="opacity:0.7">Venezuela</span></div>
+        <div>
+          <h3>Tax Agent — Internship</h3>
+          <p class="where">PwC (PricewaterhouseCoopers)</p>
+          <ul>
+            <li>Assisted with tax calculations and compliance for expatriate clients including Procter &amp; Gamble accounts.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="reveal">
+      <div class="section-label">05 — Education</div>
+      <h2>What I've <em>studied</em>.</h2>
+
+      <div class="edu">
+        <div class="when">March 2026</div>
+        <div>
+          <h3>B.S. Software Development</h3>
+          <p class="where">Bellevue University · Bellevue, NE</p>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="when">December 2011</div>
+        <div>
+          <h3>Bachelor of Business Administration</h3>
+          <p class="where">Central University of Venezuela · Caracas, VE</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:4rem;">Languages.</h2>
+      <div class="langs">
+        <div class="lang">
+          <div class="label">Spanish</div>
+          <div class="level">Native / Fluent</div>
+        </div>
+        <div class="lang">
+          <div class="label">English</div>
+          <div class="level">Professional Proficiency</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors" class="reveal">
+      <div class="section-label">06 — Honors &amp; Recognition</div>
+      <h2>Some <em>recognition</em> along the way.</h2>
+      <p class="lede">Three consecutive Dean's List awards at Bellevue University with a 4.0 GPA, and membership in Omega Nu Lambda — the National Honor Society for online students.</p>
+
+      <div class="awards">
+        <div class="award">
+          <img src="assets/deans-fall-2024.png" alt="Dean's List Fall 2024 — 4.0 GPA">
+          <div class="label">Fall 2024 · 4.0</div>
+        </div>
+        <div class="award">
+          <img src="assets/deans-spring-2025.png" alt="Dean's List Spring 2025 — 4.0 GPA">
+          <div class="label">Spring 2025 · 4.0</div>
+        </div>
+        <div class="award">
+          <img src="assets/deans-winter-2025.png" alt="Dean's List Winter 2025 — 4.0 GPA">
+          <div class="label">Winter 2025 · 4.0</div>
+        </div>
+        <div class="award crest">
+          <img src="assets/omega-nu-lambda.png" alt="Omega Nu Lambda crest">
+          <div class="label">Omega Nu Lambda · National Honor Society</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="section-label">07 — Contact</div>
+      <h2>Let's <em>talk</em>.</h2>
+      <p class="lede">Open to software development roles, contract work, and good conversations. Happy to relocate or travel for the right opportunity.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="label">Email</div>
+          <a href="mailto:jfrancotine@gmail.com">jfrancotine@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">Phone</div>
+          <a href="tel:+14698777776">469-877-7776</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">GitHub</div>
+          <a href="https://github.com/jfrancotine" target="_blank" rel="noopener">@jfrancotine</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">LinkedIn</div>
+          <a href="https://linkedin.com/in/jfrancotine" target="_blank" rel="noopener">in/jfrancotine</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Jose Franco</span>
+      <span>Built by hand · Hosted on GitHub Pages</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
